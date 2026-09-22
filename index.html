@@ -4,328 +4,525 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TechCompare — Smartphone Database</title>
+    <title>TechCompare — The Smartphone Intelligence Lab</title>
 
     <meta name="description"
-          content="TechCompare is a futuristic smartphone database for discovering, researching and comparing phones.">
+        content="TechCompare — explore smartphones, technology, specifications and detailed comparisons.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <header class="navbar">
-
-        <a href="index.html" class="logo">
-            TECH<span>COMPARE</span>
-        </a>
-
-        <nav>
-            <a href="companies.html">Companies</a>
-            <a href="phones.html">Phones</a>
-            <a href="compare.html">Compare</a>
-        </nav>
-
-        <button class="search-button">
-            SEARCH
-        </button>
-
-    </header>
+<!-- BACKGROUND -->
+<div class="background-grid"></div>
+<div class="glow glow-purple"></div>
+<div class="glow glow-blue"></div>
+<div class="glow glow-pink"></div>
 
 
-    <!-- HERO -->
-    <main>
+<!-- NAVIGATION -->
+<header class="navbar">
 
-        <section class="hero">
+    <a href="index.html" class="logo">
+        <span class="logo-mark">TC</span>
+        <span>TECH<span class="logo-accent">COMPARE</span></span>
+    </a>
 
-            <div class="hero-content">
+    <nav class="nav-links">
+        <a href="companies.html">Companies</a>
+        <a href="phones.html">Phones</a>
+        <a href="compare.html">Compare</a>
+    </nav>
 
-                <p class="eyebrow">
-                    THE SMARTPHONE DATABASE
-                </p>
+    <button class="nav-search">
+        <span>⌕</span>
+        SEARCH
+        <kbd>/</kbd>
+    </button>
 
-                <h1>
-                    KNOW YOUR
-                    <span>TECH.</span>
-                </h1>
+</header>
 
-                <p class="hero-description">
-                    Explore smartphones, companies, specifications,
-                    technologies and detailed comparisons — all in one
-                    futuristic database.
-                </p>
 
-                <div class="hero-buttons">
+<main>
 
-                    <a href="phones.html" class="button primary">
-                        EXPLORE PHONES →
-                    </a>
+<!-- HERO -->
+<section class="hero">
 
-                    <a href="compare.html" class="button secondary">
-                        COMPARE DEVICES
-                    </a>
+    <div class="hero-left">
 
+        <div class="status-line">
+            <span class="status-dot"></span>
+            DATABASE ONLINE
+            <span class="status-divider"></span>
+            2026 EDITION
+        </div>
+
+        <h1>
+            KNOW
+            <span>YOUR</span>
+            <strong>TECH.</strong>
+        </h1>
+
+        <p class="hero-text">
+            A deep-dive intelligence platform for smartphones,
+            companies and the technology inside them.
+        </p>
+
+        <div class="hero-actions">
+
+            <a href="phones.html" class="primary-button">
+                EXPLORE PHONES
+                <span>↗</span>
+            </a>
+
+            <a href="compare.html" class="secondary-button">
+                START A COMPARISON
+            </a>
+
+        </div>
+
+        <div class="hero-stats">
+
+            <div>
+                <strong>01</strong>
+                <span>PHONE DATABASE</span>
+            </div>
+
+            <div>
+                <strong>04</strong>
+                <span>BRANDS</span>
+            </div>
+
+            <div>
+                <strong>∞</strong>
+                <span>COMPARISONS</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PHONE VISUAL -->
+    <div class="hero-right">
+
+        <div class="tech-ring ring-one"></div>
+        <div class="tech-ring ring-two"></div>
+        <div class="tech-ring ring-three"></div>
+
+        <div class="phone-glow"></div>
+
+        <div class="phone-frame">
+
+            <div class="phone-screen">
+
+                <div class="screen-top">
+                    <span>09:41</span>
+                    <span>● ● ▰</span>
+                </div>
+
+                <div class="screen-label">
+                    TC / 001
+                </div>
+
+                <div class="screen-title">
+                    <span>THE</span>
+                    <strong>FUTURE</strong>
+                </div>
+
+                <div class="screen-lines">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </div>
+
+                <div class="screen-spec">
+                    <span>DISPLAY</span>
+                    <strong>120Hz</strong>
+                </div>
+
+                <div class="screen-spec">
+                    <span>CHIP</span>
+                    <strong>AI CORE</strong>
                 </div>
 
             </div>
 
-
-            <!-- FUTURISTIC VISUAL -->
-            <div class="hero-visual">
-
-                <div class="orbit orbit-one"></div>
-                <div class="orbit orbit-two"></div>
-
-                <div class="tech-core">
-                    TC
-                </div>
-
-                <div class="floating-label label-one">
-                    DISPLAY
-                </div>
-
-                <div class="floating-label label-two">
-                    CAMERA
-                </div>
-
-                <div class="floating-label label-three">
-                    CHIP
-                </div>
-
+            <div class="camera-module">
+                <i></i>
+                <i></i>
+                <i></i>
             </div>
 
-        </section>
+        </div>
 
+        <div class="floating-card floating-card-one">
+            <span>DISPLAY</span>
+            <strong>120Hz</strong>
+        </div>
 
-        <!-- QUICK CATEGORIES -->
-        <section class="section">
+        <div class="floating-card floating-card-two">
+            <span>CAMERA</span>
+            <strong>200 MP</strong>
+        </div>
 
-            <div class="section-heading">
+        <div class="floating-card floating-card-three">
+            <span>BATTERY</span>
+            <strong>5,000 mAh</strong>
+        </div>
 
-                <p class="eyebrow">
-                    EXPLORE
-                </p>
+    </div>
 
-                <h2>
-                    Everything about your phone.
-                </h2>
+</section>
 
-            </div>
 
+<!-- BRAND BAR -->
+<section class="brand-bar">
 
-            <div class="feature-grid">
+    <div class="brand-label">
+        EXPLORE
+        <span>↓</span>
+    </div>
 
-                <a href="companies.html" class="feature-card card-purple">
+    <a href="phones.html?brand=apple">
+        <span class="brand-icon"></span>
+        APPLE
+    </a>
 
-                    <div class="card-number">
-                        01
-                    </div>
+    <a href="phones.html?brand=samsung">
+        <span class="brand-icon">S</span>
+        SAMSUNG
+    </a>
 
-                    <h3>
-                        COMPANIES
-                    </h3>
+    <a href="phones.html?brand=nothing">
+        <span class="brand-icon">N</span>
+        NOTHING
+    </a>
 
-                    <p>
-                        Discover the companies behind the world's
-                        most interesting smartphones.
-                    </p>
+    <a href="phones.html?brand=oneplus">
+        <span class="brand-icon">1+</span>
+        ONEPLUS
+    </a>
 
-                    <span>
-                        EXPLORE →
-                    </span>
+</section>
 
-                </a>
 
+<!-- DISCOVERY -->
+<section class="discovery section">
 
-                <a href="phones.html" class="feature-card card-blue">
+    <div class="section-header">
 
-                    <div class="card-number">
-                        02
-                    </div>
-
-                    <h3>
-                        PHONES
-                    </h3>
-
-                    <p>
-                        Explore detailed specifications, technology,
-                        cameras, displays, batteries and more.
-                    </p>
-
-                    <span>
-                        BROWSE →
-                    </span>
-
-                </a>
-
-
-                <a href="compare.html" class="feature-card card-green">
-
-                    <div class="card-number">
-                        03
-                    </div>
-
-                    <h3>
-                        COMPARE
-                    </h3>
-
-                    <p>
-                        Compare smartphones from basic specifications
-                        to extremely detailed technical differences.
-                    </p>
-
-                    <span>
-                        COMPARE →
-                    </span>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- BRANDS -->
-        <section class="section brands-section">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    TECHNOLOGY
-                </p>
-
-                <h2>
-                    Explore the ecosystem.
-                </h2>
-
-            </div>
-
-
-            <div class="brand-grid">
-
-                <a href="phones.html?brand=apple" class="brand-card apple">
-                    <span class="brand-symbol"></span>
-                    <strong>APPLE</strong>
-                    <small>iPhone · iOS · Apple Silicon</small>
-                </a>
-
-                <a href="phones.html?brand=samsung" class="brand-card samsung">
-                    <span class="brand-symbol">S</span>
-                    <strong>SAMSUNG</strong>
-                    <small>Galaxy · One UI · Foldables</small>
-                </a>
-
-                <a href="phones.html?brand=nothing" class="brand-card nothing">
-                    <span class="brand-symbol">N</span>
-                    <strong>NOTHING</strong>
-                    <small>Nothing OS · Glyph · Design</small>
-                </a>
-
-                <a href="phones.html?brand=oneplus" class="brand-card oneplus">
-                    <span class="brand-symbol">1+</span>
-                    <strong>ONEPLUS</strong>
-                    <small>OxygenOS · Performance · Speed</small>
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- FEATURED DATA -->
-        <section class="section database-preview">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    DATABASE
-                </p>
-
-                <h2>
-                    More than specifications.
-                </h2>
-
-                <p>
-                    TechCompare is being built to contain detailed
-                    information about the technology inside modern
-                    smartphones.
-                </p>
-
-            </div>
-
-
-            <div class="data-grid">
-
-                <div class="data-item">
-                    <strong>DISPLAY</strong>
-                    <span>Resolution · OLED · Refresh Rate · HDR · Brightness</span>
-                </div>
-
-                <div class="data-item">
-                    <strong>PROCESSOR</strong>
-                    <span>CPU · GPU · Architecture · Manufacturing Process</span>
-                </div>
-
-                <div class="data-item">
-                    <strong>CAMERA</strong>
-                    <span>Sensors · Aperture · Zoom · Stabilization · Video</span>
-                </div>
-
-                <div class="data-item">
-                    <strong>BATTERY</strong>
-                    <span>Capacity · Wired Charging · Wireless Charging</span>
-                </div>
-
-                <div class="data-item">
-                    <strong>DESIGN</strong>
-                    <span>Dimensions · Weight · Materials · Durability</span>
-                </div>
-
-                <div class="data-item">
-                    <strong>CONNECTIVITY</strong>
-                    <span>5G · Wi-Fi · Bluetooth · USB · NFC · SIM</span>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- MANIFESTO -->
-        <section class="manifesto">
-
-            <p class="eyebrow">
-                TECHCOMPARE
-            </p>
+        <div>
+            <span class="section-index">01 / DISCOVER</span>
 
             <h2>
-                Don't just buy a phone.
-                <br>
-                <span>Understand it.</span>
+                Everything.
+                <span>In one place.</span>
             </h2>
-
-        </section>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-        <div class="logo">
-            TECH<span>COMPARE</span>
         </div>
 
         <p>
-            A futuristic database for smartphones and technology.
+            Go beyond the spec sheet. Explore the companies,
+            engineering, displays, cameras, processors and
+            technologies that make modern smartphones.
         </p>
 
-        <p class="copyright">
-            © 2026 TechCompare
+    </div>
+
+
+    <div class="discovery-grid">
+
+        <a href="companies.html" class="big-card company-card">
+
+            <div class="card-top">
+                <span>DATABASE / 001</span>
+                <span>→</span>
+            </div>
+
+            <div class="card-content">
+
+                <div class="orbital-logo">
+                    TC
+                </div>
+
+                <h3>COMPANIES</h3>
+
+                <p>
+                    The people, history and technology
+                    behind the world's smartphone makers.
+                </p>
+
+            </div>
+
+            <div class="card-bottom">
+                APPLE · SAMSUNG · NOTHING · ONEPLUS
+            </div>
+
+        </a>
+
+
+        <a href="phones.html" class="big-card phones-card">
+
+            <div class="card-top">
+                <span>DATABASE / 002</span>
+                <span>→</span>
+            </div>
+
+            <div class="mini-phone phone-a"></div>
+            <div class="mini-phone phone-b"></div>
+
+            <div class="card-content">
+
+                <h3>PHONES</h3>
+
+                <p>
+                    Deep specifications, technology,
+                    cameras, displays, batteries and more.
+                </p>
+
+            </div>
+
+            <div class="card-bottom">
+                BROWSE THE DATABASE →
+            </div>
+
+        </a>
+
+
+        <a href="compare.html" class="wide-card compare-card">
+
+            <div class="compare-left">
+
+                <span class="section-index">
+                    DATABASE / 003
+                </span>
+
+                <h3>
+                    COMPARE
+                    <span>EVERYTHING.</span>
+                </h3>
+
+                <p>
+                    From simple specifications to
+                    deep technical differences.
+                </p>
+
+                <strong>
+                    BUILD A COMPARISON →
+                </strong>
+
+            </div>
+
+
+            <div class="compare-visual">
+
+                <div class="compare-phone cp-one">
+                    A
+                </div>
+
+                <div class="vs">
+                    VS
+                </div>
+
+                <div class="compare-phone cp-two">
+                    S
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- TECHNOLOGY INDEX -->
+<section class="technology section">
+
+    <div class="section-header">
+
+        <div>
+            <span class="section-index">02 / THE DATABASE</span>
+
+            <h2>
+                More than
+                <span>specifications.</span>
+            </h2>
+        </div>
+
+        <p>
+            Every phone page is designed to go deeper than
+            a normal product listing.
         </p>
 
-    </footer>
+    </div>
+
+
+    <div class="tech-grid">
+
+        <div class="tech-item">
+            <span class="tech-number">01</span>
+            <div>
+                <strong>DISPLAY</strong>
+                <p>
+                    Resolution · OLED · LTPO · Refresh rate ·
+                    HDR · Brightness · Pixel density
+                </p>
+            </div>
+        </div>
+
+        <div class="tech-item">
+            <span class="tech-number">02</span>
+            <div>
+                <strong>PROCESSOR</strong>
+                <p>
+                    CPU · GPU · Architecture · Node ·
+                    Neural processing · Ray tracing
+                </p>
+            </div>
+        </div>
+
+        <div class="tech-item">
+            <span class="tech-number">03</span>
+            <div>
+                <strong>CAMERA</strong>
+                <p>
+                    Sensors · Aperture · OIS · Zoom ·
+                    Video · Computational photography
+                </p>
+            </div>
+        </div>
+
+        <div class="tech-item">
+            <span class="tech-number">04</span>
+            <div>
+                <strong>BATTERY</strong>
+                <p>
+                    Capacity · Wired charging · Wireless
+                    charging · Charging protocols
+                </p>
+            </div>
+        </div>
+
+        <div class="tech-item">
+            <span class="tech-number">05</span>
+            <div>
+                <strong>DESIGN</strong>
+                <p>
+                    Materials · Dimensions · Weight ·
+                    IP rating · Colours · Hinge technology
+                </p>
+            </div>
+        </div>
+
+        <div class="tech-item">
+            <span class="tech-number">06</span>
+            <div>
+                <strong>CONNECTIVITY</strong>
+                <p>
+                    5G · Wi-Fi · Bluetooth · USB · NFC ·
+                    SIM · Satellite
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOLDABLE FEATURE -->
+<section class="foldable-section">
+
+    <div class="foldable-content">
+
+        <span class="section-index">
+            SPECIAL CATEGORY / 001
+        </span>
+
+        <h2>
+            THE
+            <span>FOLDABLE</span>
+            ERA.
+        </h2>
+
+        <p>
+            Explore the technology behind foldable smartphones —
+            from inner displays and hinges to cover screens,
+            cameras and durability.
+        </p>
+
+        <a href="phones.html?category=foldable">
+            EXPLORE FOLDABLES →
+        </a>
+
+    </div>
+
+
+    <div class="foldable-visual">
+
+        <div class="fold-shadow"></div>
+
+        <div class="fold-phone left-fold"></div>
+        <div class="fold-phone right-fold"></div>
+
+        <div class="hinge"></div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL STATEMENT -->
+<section class="final-section">
+
+    <span>TECHCOMPARE / 2026</span>
+
+    <h2>
+        DON'T JUST
+        <span>BUY A PHONE.</span>
+        UNDERSTAND IT.
+    </h2>
+
+    <a href="phones.html">
+        ENTER THE DATABASE →
+    </a>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-logo">
+        <span>TC</span>
+        TECHCOMPARE
+    </div>
+
+    <div class="footer-links">
+        <a href="companies.html">Companies</a>
+        <a href="phones.html">Phones</a>
+        <a href="compare.html">Compare</a>
+    </div>
+
+    <div class="footer-copy">
+        © 2026 TECHCOMPARE
+    </div>
+
+</footer>
+
+
+<script src="app.js"></script>
 
 </body>
 </html>
