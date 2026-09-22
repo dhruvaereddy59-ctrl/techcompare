@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compare — TechCompare</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-grid"></div>
+
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-pink"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-box">TC</span>
+            <span>TECHCOMPARE</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="companies.html">Companies</a>
+            <a href="phones.html">Phones</a>
+            <a href="compare.html" class="active">Compare</a>
+        </div>
+
+        <a href="phones.html" class="nav-search">
+            SEARCH →
+        </a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- PAGE INTRO -->
+
+        <section class="page-hero">
+
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                COMPARISON ENGINE
+            </div>
+
+            <h1>
+                PUT THEM<br>
+                HEAD TO HEAD.
+            </h1>
+
+            <p>
+                Compare smartphones across display, processor,
+                cameras, battery, design, software and connectivity.
+            </p>
+
+        </section>
+
+
+        <!-- MODE SELECTOR -->
+
+        <section class="compare-mode-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">01 / MODE</span>
+                    <h2>CHOOSE YOUR DEPTH</h2>
+                </div>
+
+            </div>
+
+
+            <div class="compare-modes">
+
+                <button class="compare-mode active" data-mode="simple">
+
+                    <span class="mode-number">01</span>
+
+                    <div>
+                        <strong>SIMPLE COMPARE</strong>
+
+                        <p>
+                            The essential specifications,
+                            ratings and differences.
+                        </p>
+                    </div>
+
+                    <span class="mode-arrow">→</span>
+
+                </button>
+
+
+                <button class="compare-mode" data-mode="advanced">
+
+                    <span class="mode-number">02</span>
+
+                    <div>
+                        <strong>ADVANCED COMPARE</strong>
+
+                        <p>
+                            Deep technical comparison
+                            across every available specification.
+                        </p>
+                    </div>
+
+                    <span class="mode-arrow">→</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PHONE SELECTORS -->
+
+        <section class="compare-selector-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">02 / SELECT</span>
+                    <h2>CHOOSE TWO PHONES</h2>
+                </div>
+
+                <span class="section-description">
+                    A VS B
+                </span>
+
+            </div>
+
+
+            <div class="compare-selectors">
+
+
+                <!-- PHONE A -->
+
+                <div class="compare-select-card">
+
+                    <div class="compare-label">
+                        PHONE A
+                    </div>
+
+                    <select id="phoneA">
+
+                        <option value="">
+                            SELECT PHONE
+                        </option>
+
+                    </select>
+
+                    <div id="phoneAInfo" class="selected-phone-info">
+
+                        <span>
+                            A
+                        </span>
+
+                        <p>
+                            Select a phone
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VS -->
+
+                <div class="vs-symbol">
+                    VS
+                </div>
+
+
+                <!-- PHONE B -->
+
+                <div class="compare-select-card">
+
+                    <div class="compare-label">
+                        PHONE B
+                    </div>
+
+                    <select id="phoneB">
+
+                        <option value="">
+                            SELECT PHONE
+                        </option>
+
+                    </select>
+
+                    <div id="phoneBInfo" class="selected-phone-info">
+
+                        <span>
+                            B
+                        </span>
+
+                        <p>
+                            Select a phone
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button id="runComparison" class="primary-button compare-run">
+
+                RUN COMPARISON →
+
+            </button>
+
+        </section>
+
+
+        <!-- RESULTS -->
+
+        <section
+            id="comparisonResults"
+            class="comparison-results"
+            style="display:none;"
+        >
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        03 / RESULTS
+                    </span>
+
+                    <h2>
+                        HEAD TO HEAD
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <!-- PHONE HEADERS -->
+
+            <div class="comparison-header-grid">
+
+                <div id="resultPhoneA">
+                    PHONE A
+                </div>
+
+                <div class="result-vs">
+                    VS
+                </div>
+
+                <div id="resultPhoneB">
+                    PHONE B
+                </div>
+
+            </div>
+
+
+            <!-- COMPARISON TABLE -->
+
+            <div id="comparisonTable" class="comparison-table">
+
+                <!-- JavaScript will generate the table -->
+
+            </div>
+
+        </section>
+
+
+        <!-- ADVANCED INFORMATION -->
+
+        <section class="technology-index">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        04 / ANALYSIS
+                    </span>
+
+                    <h2>
+                        WHAT WE COMPARE
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="tech-grid">
+
+                <div class="tech-item">
+                    <span>01</span>
+                    <strong>DISPLAY</strong>
+                    <p>
+                        Size, resolution, panel technology,
+                        refresh rate and special features.
+                    </p>
+                </div>
+
+
+                <div class="tech-item">
+                    <span>02</span>
+                    <strong>PROCESSOR</strong>
+                    <p>
+                        CPU, GPU, architecture,
+                        fabrication and performance hardware.
+                    </p>
+                </div>
+
+
+                <div class="tech-item">
+                    <span>03</span>
+                    <strong>CAMERA</strong>
+                    <p>
+                        Sensors, lenses, stabilization,
+                        zoom and video recording.
+                    </p>
+                </div>
+
+
+                <div class="tech-item">
+                    <span>04</span>
+                    <strong>BATTERY</strong>
+                    <p>
+                        Capacity, charging speeds
+                        and wireless charging.
+                    </p>
+                </div>
+
+
+                <div class="tech-item">
+                    <span>05</span>
+                    <strong>DESIGN</strong>
+                    <p>
+                        Materials, dimensions, weight,
+                        durability and form factor.
+                    </p>
+                </div>
+
+
+                <div class="tech-item">
+                    <span>06</span>
+                    <strong>SOFTWARE</strong>
+                    <p>
+                        Operating system, interface,
+                        updates and special features.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINAL CTA -->
+
+        <section class="final-cta">
+
+            <span class="section-number">
+                TECHCOMPARE DATABASE
+            </span>
+
+            <h2>
+                NEED MORE<br>
+                PHONES?
+            </h2>
+
+            <a href="phones.html" class="primary-button">
+                EXPLORE PHONE DATABASE →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            TC / TECHCOMPARE
+        </div>
+
+        <div>
+            SMARTPHONE INTELLIGENCE LAB · 2026
+        </div>
+
+    </footer>
+
+
+    <!-- DATA -->
+
+    <script src="data/companies.js"></script>
+    <script src="data/phones.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
