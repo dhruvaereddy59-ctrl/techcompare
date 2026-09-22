@@ -1,0 +1,738 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Phone — TechCompare</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- FUTURISTIC BACKGROUND -->
+
+    <div class="background-grid"></div>
+
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-pink"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-box">TC</span>
+            <span>TECHCOMPARE</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="companies.html">Companies</a>
+            <a href="phones.html" class="active">Phones</a>
+            <a href="compare.html">Compare</a>
+        </div>
+
+        <a href="phones.html" class="nav-search">
+            SEARCH →
+        </a>
+
+    </nav>
+
+
+    <main id="phonePage">
+
+        <!-- BACK LINK -->
+
+        <section class="phone-back-section">
+
+            <a href="phones.html" class="back-link">
+                ← BACK TO PHONE DATABASE
+            </a>
+
+        </section>
+
+
+        <!-- PHONE HERO -->
+
+        <section class="phone-detail-hero">
+
+            <div class="phone-detail-copy">
+
+                <div class="eyebrow">
+                    <span class="status-dot"></span>
+                    <span id="phoneBrand">LOADING...</span>
+                </div>
+
+                <span class="phone-detail-family" id="phoneFamily">
+                    SMARTPHONE
+                </span>
+
+                <h1 id="phoneName">
+                    LOADING PHONE...
+                </h1>
+
+                <p id="phoneTagline">
+                    Loading phone information...
+                </p>
+
+                <div class="phone-detail-meta">
+
+                    <div>
+                        <span>YEAR</span>
+                        <strong id="phoneYear">—</strong>
+                    </div>
+
+                    <div>
+                        <span>TYPE</span>
+                        <strong id="phoneType">—</strong>
+                    </div>
+
+                    <div>
+                        <span>FAMILY</span>
+                        <strong id="phoneFamilyMeta">—</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHONE VISUAL -->
+
+            <div class="phone-detail-visual">
+
+                <div class="hero-phone-glow"></div>
+
+                <div class="hero-phone">
+
+                    <div class="hero-phone-camera">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="hero-phone-logo" id="phoneLogo">
+                        TC
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HIGHLIGHTS -->
+
+        <section class="phone-highlights-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        01 / HIGHLIGHTS
+                    </span>
+
+                    <h2>
+                        KEY TECHNOLOGY
+                    </h2>
+                </div>
+
+                <span class="section-description">
+                    CORE SPECIFICATIONS
+                </span>
+
+            </div>
+
+
+            <div id="phoneHighlights" class="phone-detail-highlights">
+                <!-- JavaScript inserts highlights -->
+            </div>
+
+        </section>
+
+
+        <!-- DESCRIPTION -->
+
+        <section class="phone-description-section">
+
+            <div class="section-number">
+                02 / OVERVIEW
+            </div>
+
+            <div class="phone-description-layout">
+
+                <h2>
+                    THE<br>
+                    DEVICE.
+                </h2>
+
+                <p id="phoneDescription">
+                    Loading device description...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DISPLAY -->
+
+        <section class="spec-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        03 / DISPLAY
+                    </span>
+
+                    <h2>
+                        DISPLAY SYSTEM
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="displaySpecs" class="spec-grid">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- PROCESSOR -->
+
+        <section class="spec-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        04 / PROCESSOR
+                    </span>
+
+                    <h2>
+                        COMPUTE PLATFORM
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="processorSpecs" class="spec-grid">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- MEMORY -->
+
+        <section class="spec-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        05 / MEMORY
+                    </span>
+
+                    <h2>
+                        MEMORY & STORAGE
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="memorySpecs" class="spec-grid">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- CAMERA -->
+
+        <section class="spec-section camera-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        06 / CAMERA
+                    </span>
+
+                    <h2>
+                        CAMERA SYSTEM
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="cameraSpecs" class="spec-grid">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- BATTERY -->
+
+        <section class="spec-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        07 / POWER
+                    </span>
+
+                    <h2>
+                        BATTERY & CHARGING
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="batterySpecs" class="spec-grid">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- PHYSICAL DESIGN -->
+
+        <section class="spec-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        08 / DESIGN
+                    </span>
+
+                    <h2>
+                        PHYSICAL SYSTEM
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="physicalSpecs" class="spec-grid">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- CONNECTIVITY -->
+
+        <section class="spec-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        09 / CONNECTIVITY
+                    </span>
+
+                    <h2>
+                        NETWORK & CONNECTION
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="connectivitySpecs" class="spec-grid">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- SOFTWARE -->
+
+        <section class="spec-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        10 / SOFTWARE
+                    </span>
+
+                    <h2>
+                        SOFTWARE SYSTEM
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="softwareSpecs" class="spec-grid">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- SPECIAL FEATURES -->
+
+        <section class="phone-features-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">
+                        11 / FEATURES
+                    </span>
+
+                    <h2>
+                        WHAT MAKES IT DIFFERENT
+                    </h2>
+                </div>
+
+            </div>
+
+            <div id="phoneFeatures" class="feature-list">
+                <!-- JavaScript -->
+            </div>
+
+        </section>
+
+
+        <!-- COMPARE CTA -->
+
+        <section class="final-cta">
+
+            <span class="section-number">
+                COMPARISON ENGINE
+            </span>
+
+            <h2>
+                READY TO<br>
+                COMPARE?
+            </h2>
+
+            <p>
+                Put this phone head-to-head with another device.
+            </p>
+
+            <a href="compare.html" class="primary-button">
+                OPEN COMPARISON ENGINE →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            TC / TECHCOMPARE
+        </div>
+
+        <div>
+            SMARTPHONE INTELLIGENCE LAB · 2026
+        </div>
+
+    </footer>
+
+
+    <!-- DATABASE -->
+
+    <script src="data/companies.js"></script>
+    <script src="data/phones.js"></script>
+    <script src="app.js"></script>
+
+
+    <!-- PHONE PAGE LOGIC -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const phoneDatabase =
+                typeof phones !== "undefined" ? phones : [];
+
+            const params =
+                new URLSearchParams(window.location.search);
+
+            const phoneId =
+                params.get("id");
+
+            const phone =
+                phoneDatabase.find(item => item.id === phoneId);
+
+
+            /* --------------------------------
+               ERROR STATE
+            -------------------------------- */
+
+            if (!phone) {
+
+                document.title = "Phone Not Found — TechCompare";
+
+                document.getElementById("phoneName").textContent =
+                    "PHONE NOT FOUND";
+
+                document.getElementById("phoneTagline").textContent =
+                    "The requested device could not be found in the TechCompare database.";
+
+                return;
+            }
+
+
+            /* --------------------------------
+               BASIC INFORMATION
+            -------------------------------- */
+
+            document.title =
+                `${phone.name} — TechCompare`;
+
+            document.getElementById("phoneBrand").textContent =
+                (phone.brand || "UNKNOWN").toUpperCase();
+
+            document.getElementById("phoneFamily").textContent =
+                (phone.family || "SMARTPHONE").toUpperCase();
+
+            document.getElementById("phoneName").textContent =
+                phone.name || "Unknown Phone";
+
+            document.getElementById("phoneTagline").textContent =
+                phone.tagline || "";
+
+            document.getElementById("phoneYear").textContent =
+                phone.year || "—";
+
+            document.getElementById("phoneType").textContent =
+                phone.type || "SMARTPHONE";
+
+            document.getElementById("phoneFamilyMeta").textContent =
+                phone.family || "—";
+
+            document.getElementById("phoneDescription").textContent =
+                phone.description || "No description available.";
+
+            document.getElementById("phoneLogo").textContent =
+                getBrandInitial(phone.brand);
+
+
+            /* --------------------------------
+               HIGHLIGHTS
+            -------------------------------- */
+
+            const highlightsContainer =
+                document.getElementById("phoneHighlights");
+
+            const highlights =
+                phone.highlights || [];
+
+            highlightsContainer.innerHTML =
+                highlights.map((item, index) => {
+
+                    return `
+                        <div class="detail-highlight">
+                            <span>0${index + 1}</span>
+                            <strong>${item}</strong>
+                        </div>
+                    `;
+
+                }).join("");
+
+
+            /* --------------------------------
+               SPECIFICATIONS
+            -------------------------------- */
+
+            renderSpecs(
+                "displaySpecs",
+                phone.display
+            );
+
+            renderSpecs(
+                "processorSpecs",
+                phone.processor
+            );
+
+            renderSpecs(
+                "memorySpecs",
+                phone.memory
+            );
+
+            renderSpecs(
+                "cameraSpecs",
+                phone.camera
+            );
+
+            renderSpecs(
+                "batterySpecs",
+                phone.battery
+            );
+
+            renderSpecs(
+                "physicalSpecs",
+                phone.physical
+            );
+
+            renderSpecs(
+                "connectivitySpecs",
+                phone.connectivity
+            );
+
+            renderSpecs(
+                "softwareSpecs",
+                phone.software
+            );
+
+
+            /* --------------------------------
+               SPECIAL FEATURES
+            -------------------------------- */
+
+            const featureContainer =
+                document.getElementById("phoneFeatures");
+
+            featureContainer.innerHTML =
+                highlights.map((feature, index) => {
+
+                    return `
+                        <div class="feature-row">
+                            <span>0${index + 1}</span>
+                            <strong>${feature}</strong>
+                            <span>TECHCOMPARE</span>
+                        </div>
+                    `;
+
+                }).join("");
+
+        });
+
+
+        /* --------------------------------
+           SPEC RENDERER
+        -------------------------------- */
+
+        function renderSpecs(containerId, data) {
+
+            const container =
+                document.getElementById(containerId);
+
+            if (!container) return;
+
+            if (!data || typeof data !== "object") {
+
+                container.innerHTML =
+                    `<div class="spec-card">
+                        <span>DATA</span>
+                        <strong>Not available</strong>
+                    </div>`;
+
+                return;
+            }
+
+
+            container.innerHTML =
+                Object.entries(data).map(([key, value]) => {
+
+                    let displayValue = value;
+
+
+                    if (Array.isArray(value)) {
+
+                        displayValue =
+                            value.join(", ");
+
+                    }
+
+
+                    if (
+                        typeof value === "object" &&
+                        value !== null &&
+                        !Array.isArray(value)
+                    ) {
+
+                        displayValue =
+                            Object.entries(value)
+                                .map(([subKey, subValue]) =>
+                                    `${formatKey(subKey)}: ${subValue}`
+                                )
+                                .join("<br>");
+
+                    }
+
+
+                    return `
+                        <div class="spec-card">
+
+                            <span>
+                                ${formatKey(key)}
+                            </span>
+
+                            <strong>
+                                ${displayValue}
+                            </strong>
+
+                        </div>
+                    `;
+
+                }).join("");
+
+        }
+
+
+        /* --------------------------------
+           KEY FORMATTER
+        -------------------------------- */
+
+        function formatKey(key) {
+
+            return key
+                .replace(/([A-Z])/g, " $1")
+                .replace(/[-_]/g, " ")
+                .replace(/^./, letter =>
+                    letter.toUpperCase()
+                );
+
+        }
+
+
+        /* --------------------------------
+           BRAND INITIAL
+        -------------------------------- */
+
+        function getBrandInitial(brand) {
+
+            const initials = {
+
+                apple: "A",
+
+                samsung: "S",
+
+                nothing: "N",
+
+                oneplus: "1+"
+
+            };
+
+            return initials[brand] || "TC";
+
+        }
+
+    </script>
+
+</body>
+</html>
+```
