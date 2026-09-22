@@ -1,28 +1,87 @@
-// ============================================
-// TECHCOMPARE — MAIN APPLICATION
-// ============================================
-
 document.addEventListener("DOMContentLoaded", () => {
 
-    // --------------------------------------------
-    // PHONE DATABASE
-    // --------------------------------------------
+    /* =====================================================
+       TECHCOMPARE DATABASE
+       ===================================================== */
 
     const phoneDatabase =
         typeof phones !== "undefined" ? phones : [];
 
 
-    // --------------------------------------------
-    // CURRENT PAGE
-    // --------------------------------------------
+    /* =====================================================
+       CURRENT PAGE
+       ===================================================== */
 
     const currentPage =
         window.location.pathname.split("/").pop();
 
 
-    // --------------------------------------------
-    // PHONE DATABASE PAGE
-    // --------------------------------------------
+    /* =====================================================
+       HELPER FUNCTIONS
+       ===================================================== */
+
+    function getPhoneById(id) {
+        return phoneDatabase.find(phone => phone.id === id);
+    }
+
+
+    function getBrandInitial(brand) {
+
+        const initials = {
+            apple: "A",
+            samsung: "S",
+            nothing: "N",
+            oneplus: "1+"
+        };
+
+        return initials[brand] || "TC";
+    }
+
+
+    function formatKey(key) {
+
+        return String(key)
+            .replace(/([A-Z])/g, " $1")
+            .replace(/[-_]/g, " ")
+            .replace(/^./, letter => letter.toUpperCase());
+    }
+
+
+    function formatValue(value) {
+
+        if (value === undefined || value === null || value === "") {
+            return "—";
+        }
+
+        if (Array.isArray(value)) {
+            return value.join(", ");
+        }
+
+        if (typeof value === "object") {
+
+            return Object.entries(value)
+                .map(([key, val]) => {
+
+                    let formatted = val;
+
+                    if (Array.isArray(val)) {
+                        formatted = val.join(", ");
+                    }
+
+                    return `${formatKey(key)}: ${formatted}`;
+
+                })
+                .join("<br>");
+        }
+
+        return value;
+    }
+
+
+    /* =====================================================
+       PHONE DATABASE PAGE
+       phones.html
+       ===================================================== */
 
     const phoneGrid =
         document.getElementById("phoneGrid");
@@ -50,35 +109,38 @@ document.addEventListener("DOMContentLoaded", () => {
                     : "";
 
 
-            const filteredPhones = phoneDatabase.filter(phone => {
+            const filteredPhones =
+                phoneDatabase.filter(phone => {
 
-                const matchesBrand =
-                    activeBrand === "all" ||
-                    phone.brand === activeBrand;
-
-
-                const searchableText = [
-
-                    phone.name,
-                    phone.brand,
-                    phone.family,
-                    phone.type,
-                    phone.tagline,
-                    phone.description
-
-                ]
-                .filter(Boolean)
-                .join(" ")
-                .toLowerCase();
+                    const matchesBrand =
+                        activeBrand === "all" ||
+                        phone.brand === activeBrand;
 
 
-                const matchesSearch =
-                    searchableText.includes(searchTerm);
+                    const searchableText = [
+
+                        phone.name,
+                        phone.brand,
+                        phone.family,
+                        phone.type,
+                        phone.tagline,
+                        phone.description,
+
+                        ...(phone.highlights || [])
+
+                    ]
+                        .filter(Boolean)
+                        .join(" ")
+                        .toLowerCase();
 
 
-                return matchesBrand && matchesSearch;
+                    const matchesSearch =
+                        searchableText.includes(searchTerm);
 
-            });
+
+                    return matchesBrand && matchesSearch;
+
+                });
 
 
             phoneGrid.innerHTML = "";
@@ -98,10 +160,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     "phone-card";
 
 
-                const highlight =
+                const highlights =
                     phone.highlights &&
                     phone.highlights.length
-                        ? phone.highlights.slice(0, 3)
+                        ? phone.highlights.slice(0, 4)
                         : [];
 
 
@@ -114,7 +176,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </span>
 
                         <span class="phone-type">
-                            ${phone.type || "SMARTPHONE"}
+                            ${(phone.type || "SMARTPHONE").toUpperCase()}
                         </span>
 
                     </div>
@@ -156,9 +218,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div class="phone-highlights">
 
-                        ${highlight.map(item => `
-                            <span>${item}</span>
-                        `).join("")}
+                        ${highlights
+                            .map(item => `<span>${item}</span>`)
+                            .join("")}
 
                     </div>
 
@@ -178,7 +240,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (phoneCount) {
 
                 phoneCount.textContent =
-                    `${filteredPhones.length} PHONE${filteredPhones.length === 1 ? "" : "S"}`;
+                    `${filteredPhones.length} PHONE${
+                        filteredPhones.length === 1 ? "" : "S"
+                    }`;
 
             }
 
@@ -195,9 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        // ----------------------------------------
-        // SEARCH
-        // ----------------------------------------
+        /* SEARCH */
 
         if (phoneSearch) {
 
@@ -209,9 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
 
-        // ----------------------------------------
-        // BRAND FILTERS
-        // ----------------------------------------
+        /* BRAND FILTERS */
 
         const filterButtons =
             document.querySelectorAll(".filter-button");
@@ -221,9 +281,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             button.addEventListener("click", () => {
 
-                filterButtons.forEach(btn =>
-                    btn.classList.remove("active")
-                );
+                filterButtons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
 
 
                 button.classList.add("active");
@@ -240,9 +300,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 
-        // ----------------------------------------
-        // URL BRAND FILTER
-        // ----------------------------------------
+        /* URL BRAND FILTER */
 
         const urlParams =
             new URLSearchParams(window.location.search);
@@ -262,9 +320,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (matchingButton) {
 
-                filterButtons.forEach(btn =>
-                    btn.classList.remove("active")
-                );
+                filterButtons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
 
 
                 matchingButton.classList.add("active");
@@ -283,9 +341,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // --------------------------------------------
-    // COMPARISON ENGINE
-    // --------------------------------------------
+    /* =====================================================
+       COMPARISON PAGE
+       compare.html
+       ===================================================== */
 
     const phoneA =
         document.getElementById("phoneA");
@@ -302,13 +361,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         phoneA.addEventListener(
             "change",
-            () => updateSelectedPhone(phoneA, "phoneAInfo")
+            () => updateSelectedPhone(
+                phoneA,
+                "phoneAInfo"
+            )
         );
 
 
         phoneB.addEventListener(
             "change",
-            () => updateSelectedPhone(phoneB, "phoneBInfo")
+            () => updateSelectedPhone(
+                phoneB,
+                "phoneBInfo"
+            )
         );
 
 
@@ -328,9 +393,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // --------------------------------------------
-    // COMPARISON MODE
-    // --------------------------------------------
+    /* =====================================================
+       COMPARISON MODE
+       ===================================================== */
 
     const comparisonModes =
         document.querySelectorAll(".compare-mode");
@@ -340,9 +405,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mode.addEventListener("click", () => {
 
-            comparisonModes.forEach(item =>
-                item.classList.remove("active")
-            );
+            comparisonModes.forEach(item => {
+                item.classList.remove("active");
+            });
 
 
             mode.classList.add("active");
@@ -352,28 +417,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // --------------------------------------------
-    // HELPERS
-    // --------------------------------------------
-
-    function getBrandInitial(brand) {
-
-        const initials = {
-
-            apple: "A",
-            samsung: "S",
-            nothing: "N",
-            oneplus: "1+"
-
-        };
-
-
-        return initials[brand] || "TC";
-
-    }
-
+    /* =====================================================
+       PHONE SELECTOR
+       ===================================================== */
 
     function populatePhoneSelector(select) {
+
+        select.innerHTML =
+            `<option value="">Select a phone...</option>`;
+
 
         phoneDatabase.forEach(phone => {
 
@@ -396,14 +448,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function getPhoneById(id) {
-
-        return phoneDatabase.find(
-            phone => phone.id === id
-        );
-
-    }
-
+    /* =====================================================
+       SELECTED PHONE PREVIEW
+       ===================================================== */
 
     function updateSelectedPhone(select, infoId) {
 
@@ -421,17 +468,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!phone) {
 
             info.innerHTML = `
-
                 <span>?</span>
-
-                <p>
-                    Select a phone
-                </p>
-
+                <p>Select a phone</p>
             `;
 
             return;
-
         }
 
 
@@ -450,9 +491,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // --------------------------------------------
-    // RUN COMPARISON
-    // --------------------------------------------
+    /* =====================================================
+       RUN COMPARISON
+       ===================================================== */
 
     function runPhoneComparison() {
 
@@ -513,16 +554,79 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!results || !table) return;
 
 
-        resultPhoneA.textContent =
-            selectedA.name;
+        if (resultPhoneA) {
+            resultPhoneA.textContent =
+                selectedA.name;
+        }
 
 
-        resultPhoneB.textContent =
-            selectedB.name;
+        if (resultPhoneB) {
+            resultPhoneB.textContent =
+                selectedB.name;
+        }
 
 
-        table.innerHTML = "";
+        /* CREATE REAL TABLE */
 
+        table.innerHTML = `
+
+            <table class="real-comparison-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            SPECIFICATION
+                        </th>
+
+                        <th>
+                            ${selectedA.name}
+                        </th>
+
+                        <th>
+                            ${selectedB.name}
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    ${createComparisonRows(
+                        selectedA,
+                        selectedB
+                    )}
+
+                </tbody>
+
+            </table>
+
+        `;
+
+
+        results.style.display =
+            "block";
+
+
+        results.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    }
+
+
+    /* =====================================================
+       CREATE COMPARISON TABLE ROWS
+       ===================================================== */
+
+    function createComparisonRows(
+        phoneOne,
+        phoneTwo
+    ) {
 
         const categories = [
 
@@ -569,125 +673,488 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
 
 
+        let rows = "";
+
+
         categories.forEach(category => {
 
-            const valueA =
-                formatComparisonValue(
-                    selectedA[category.key]
-                );
+            const dataOne =
+                phoneOne[category.key] || {};
 
 
-            const valueB =
-                formatComparisonValue(
-                    selectedB[category.key]
-                );
+            const dataTwo =
+                phoneTwo[category.key] || {};
 
 
-            table.innerHTML += `
+            const keys =
+                new Set([
+                    ...Object.keys(dataOne),
+                    ...Object.keys(dataTwo)
+                ]);
 
-                <div class="comparison-category">
 
-                    <div class="comparison-category-title">
+            if (keys.size === 0) {
+
+                rows += `
+
+                    <tr class="comparison-group-row">
+
+                        <td colspan="3">
+                            ${category.name}
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td class="comparison-label">
+                            DATA
+                        </td>
+
+                        <td>—</td>
+
+                        <td>—</td>
+
+                    </tr>
+
+                `;
+
+                return;
+
+            }
+
+
+            rows += `
+
+                <tr class="comparison-group-row">
+
+                    <td colspan="3">
                         ${category.name}
-                    </div>
+                    </td>
 
-                    <div class="comparison-row">
+                </tr>
 
-                        <div>
-                            ${valueA}
+            `;
+
+
+            keys.forEach(key => {
+
+                const valueOne =
+                    formatValue(
+                        dataOne[key]
+                    );
+
+
+                const valueTwo =
+                    formatValue(
+                        dataTwo[key]
+                    );
+
+
+                rows += `
+
+                    <tr>
+
+                        <td class="comparison-label">
+
+                            ${formatKey(key)}
+
+                        </td>
+
+
+                        <td>
+
+                            ${valueOne}
+
+                        </td>
+
+
+                        <td>
+
+                            ${valueTwo}
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            });
+
+        });
+
+
+        return rows;
+
+    }
+
+
+    /* =====================================================
+       OPTIONAL PHONE DETAIL PAGE
+       ===================================================== */
+
+    const phonePage =
+        document.getElementById("phonePage");
+
+
+    if (phonePage) {
+
+        loadPhoneDetailPage();
+
+    }
+
+
+    function loadPhoneDetailPage() {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const phoneId =
+            params.get("id");
+
+
+        const phone =
+            getPhoneById(phoneId);
+
+
+        if (!phone) {
+
+            document.title =
+                "Phone Not Found — TechCompare";
+
+
+            const name =
+                document.getElementById(
+                    "phoneName"
+                );
+
+
+            if (name) {
+                name.textContent =
+                    "PHONE NOT FOUND";
+            }
+
+
+            const tagline =
+                document.getElementById(
+                    "phoneTagline"
+                );
+
+
+            if (tagline) {
+
+                tagline.textContent =
+                    "The requested device could not be found in the TechCompare database.";
+
+            }
+
+
+            return;
+
+        }
+
+
+        document.title =
+            `${phone.name} — TechCompare`;
+
+
+        setText(
+            "phoneBrand",
+            (phone.brand || "UNKNOWN").toUpperCase()
+        );
+
+
+        setText(
+            "phoneFamily",
+            (phone.family || "SMARTPHONE").toUpperCase()
+        );
+
+
+        setText(
+            "phoneName",
+            phone.name || "Unknown Phone"
+        );
+
+
+        setText(
+            "phoneTagline",
+            phone.tagline || ""
+        );
+
+
+        setText(
+            "phoneYear",
+            phone.year || "—"
+        );
+
+
+        setText(
+            "phoneType",
+            phone.type || "SMARTPHONE"
+        );
+
+
+        setText(
+            "phoneFamilyMeta",
+            phone.family || "—"
+        );
+
+
+        setText(
+            "phoneDescription",
+            phone.description ||
+            "No description available."
+        );
+
+
+        setText(
+            "phoneLogo",
+            getBrandInitial(phone.brand)
+        );
+
+
+        /* HIGHLIGHTS */
+
+        const highlightsContainer =
+            document.getElementById(
+                "phoneHighlights"
+            );
+
+
+        const highlights =
+            phone.highlights || [];
+
+
+        if (highlightsContainer) {
+
+            highlightsContainer.innerHTML =
+                highlights.map(
+                    (item, index) => `
+
+                        <div class="detail-highlight">
+
+                            <span>
+                                ${String(index + 1).padStart(2, "0")}
+                            </span>
+
+                            <strong>
+                                ${item}
+                            </strong>
+
                         </div>
 
-                        <div class="comparison-vs">
-                            VS
+                    `
+                ).join("");
+
+        }
+
+
+        /* SPECIFICATIONS */
+
+        renderSpecs(
+            "displaySpecs",
+            phone.display
+        );
+
+
+        renderSpecs(
+            "processorSpecs",
+            phone.processor
+        );
+
+
+        renderSpecs(
+            "memorySpecs",
+            phone.memory
+        );
+
+
+        renderSpecs(
+            "cameraSpecs",
+            phone.camera
+        );
+
+
+        renderSpecs(
+            "batterySpecs",
+            phone.battery
+        );
+
+
+        renderSpecs(
+            "physicalSpecs",
+            phone.physical
+        );
+
+
+        renderSpecs(
+            "connectivitySpecs",
+            phone.connectivity
+        );
+
+
+        renderSpecs(
+            "softwareSpecs",
+            phone.software
+        );
+
+
+        /* FEATURES */
+
+        const featureContainer =
+            document.getElementById(
+                "phoneFeatures"
+            );
+
+
+        if (featureContainer) {
+
+            featureContainer.innerHTML =
+                highlights.map(
+                    (feature, index) => `
+
+                        <div class="feature-row">
+
+                            <span>
+                                ${String(index + 1).padStart(2, "0")}
+                            </span>
+
+                            <strong>
+                                ${feature}
+                            </strong>
+
+                            <span>
+                                TECHCOMPARE
+                            </span>
+
                         </div>
 
-                        <div>
-                            ${valueB}
-                        </div>
+                    `
+                ).join("");
 
-                    </div>
+        }
+
+    }
+
+
+    /* =====================================================
+       PHONE SPECIFICATION RENDERER
+       ===================================================== */
+
+    function renderSpecs(
+        containerId,
+        data
+    ) {
+
+        const container =
+            document.getElementById(
+                containerId
+            );
+
+
+        if (!container) return;
+
+
+        if (
+            !data ||
+            typeof data !== "object"
+        ) {
+
+            container.innerHTML = `
+
+                <div class="spec-card">
+
+                    <span>
+                        DATA
+                    </span>
+
+                    <strong>
+                        Not available
+                    </strong>
 
                 </div>
 
             `;
 
-        });
-
-
-        results.style.display =
-            "block";
-
-
-        results.scrollIntoView({
-            behavior: "smooth"
-        });
-
-    }
-
-
-    // --------------------------------------------
-    // FORMAT COMPARISON DATA
-    // --------------------------------------------
-
-    function formatComparisonValue(value) {
-
-        if (value === undefined ||
-            value === null) {
-
-            return "—";
+            return;
 
         }
 
 
-        if (Array.isArray(value)) {
+        const entries =
+            Object.entries(data);
 
-            return value.join("<br>");
+
+        if (entries.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="spec-card">
+
+                    <span>
+                        DATA
+                    </span>
+
+                    <strong>
+                        Not available
+                    </strong>
+
+                </div>
+
+            `;
+
+            return;
 
         }
 
 
-        if (typeof value === "object") {
-
-            return Object.entries(value)
-                .map(([key, val]) => {
-
-                    let formatted = val;
-
-
-                    if (Array.isArray(val)) {
-
-                        formatted =
-                            val.join(", ");
-
-                    }
-
+        container.innerHTML =
+            entries.map(
+                ([key, value]) => {
 
                     return `
-                        <strong>
-                            ${formatKey(key)}
-                        </strong>: ${formatted}
+
+                        <div class="spec-card">
+
+                            <span>
+                                ${formatKey(key)}
+                            </span>
+
+                            <strong>
+                                ${formatValue(value)}
+                            </strong>
+
+                        </div>
+
                     `;
 
-                })
-                .join("<br>");
+                }
+            ).join("");
 
+    }
+
+
+    /* =====================================================
+       SAFE TEXT HELPER
+       ===================================================== */
+
+    function setText(
+        id,
+        value
+    ) {
+
+        const element =
+            document.getElementById(id);
+
+
+        if (element) {
+            element.textContent =
+                value;
         }
 
-
-        return value;
-
     }
-
-
-    function formatKey(key) {
-
-        return key
-            .replace(/([A-Z])/g, " $1")
-            .replace(/^./, letter =>
-                letter.toUpperCase()
-            );
-
-    }
-
 
 });
