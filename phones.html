@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Phones — TechCompare</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-grid"></div>
+
+    <div class="glow glow-purple"></div>
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-pink"></div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-box">TC</span>
+            <span>TECHCOMPARE</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="companies.html">Companies</a>
+            <a href="phones.html" class="active">Phones</a>
+            <a href="compare.html">Compare</a>
+        </div>
+
+        <a href="phones.html" class="nav-search">
+            SEARCH →
+        </a>
+
+    </nav>
+
+
+    <main>
+
+        <!-- PAGE INTRO -->
+
+        <section class="page-hero">
+
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                PHONE DATABASE / 2026
+            </div>
+
+            <h1>
+                EVERY PHONE.<br>
+                ONE DATABASE.
+            </h1>
+
+            <p>
+                Explore smartphones by company, family, generation,
+                hardware and technology.
+            </p>
+
+        </section>
+
+
+        <!-- SEARCH -->
+
+        <section class="phone-search-section">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="phoneSearch"
+                    placeholder="Search phones, companies or technology..."
+                >
+
+                <span class="search-command">
+                    SEARCH
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- FILTERS -->
+
+        <section class="phone-database">
+
+            <div class="database-header">
+
+                <div>
+                    <span class="section-number">01 / DATABASE</span>
+                    <h2>PHONE INDEX</h2>
+                </div>
+
+                <span id="phoneCount">
+                    LOADING...
+                </span>
+
+            </div>
+
+
+            <div class="phone-filters">
+
+                <button class="filter-button active" data-brand="all">
+                    ALL
+                </button>
+
+                <button class="filter-button" data-brand="apple">
+                    APPLE
+                </button>
+
+                <button class="filter-button" data-brand="samsung">
+                    SAMSUNG
+                </button>
+
+                <button class="filter-button" data-brand="nothing">
+                    NOTHING
+                </button>
+
+                <button class="filter-button" data-brand="oneplus">
+                    ONEPLUS
+                </button>
+
+            </div>
+
+
+            <!-- PHONE GRID -->
+
+            <div id="phoneGrid" class="phone-grid">
+
+                <!-- JavaScript will insert phones here -->
+
+            </div>
+
+
+            <!-- NO RESULTS -->
+
+            <div id="noResults" class="no-results" style="display:none;">
+
+                <div class="no-results-code">
+                    404
+                </div>
+
+                <h3>
+                    NO PHONE FOUND
+                </h3>
+
+                <p>
+                    Try another phone name, company or technology.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURED TECHNOLOGIES -->
+
+        <section class="technology-index">
+
+            <div class="section-heading">
+
+                <div>
+                    <span class="section-number">02 / TECHNOLOGY</span>
+                    <h2>EXPLORE BY TECH</h2>
+                </div>
+
+                <span class="section-description">
+                    HARDWARE / SOFTWARE / DESIGN
+                </span>
+
+            </div>
+
+
+            <div class="tech-grid">
+
+                <div class="tech-item">
+                    <span>01</span>
+                    <strong>FOLDABLES</strong>
+                    <p>Book-style and flip-style folding smartphones.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span>02</span>
+                    <strong>CAMERAS</strong>
+                    <p>Explore sensors, lenses, zoom and video systems.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span>03</span>
+                    <strong>DISPLAYS</strong>
+                    <p>OLED, AMOLED, LTPO, resolution and refresh rate.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span>04</span>
+                    <strong>PROCESSORS</strong>
+                    <p>Compare CPU, GPU and mobile chipsets.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span>05</span>
+                    <strong>BATTERY</strong>
+                    <p>Battery capacity and charging technologies.</p>
+                </div>
+
+                <div class="tech-item">
+                    <span>06</span>
+                    <strong>5G / WI-FI</strong>
+                    <p>Connectivity standards and wireless technology.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- COMPARISON CTA -->
+
+        <section class="final-cta">
+
+            <span class="section-number">
+                COMPARISON ENGINE
+            </span>
+
+            <h2>
+                FOUND YOUR<br>
+                CONTENDERS?
+            </h2>
+
+            <p>
+                Put two phones head-to-head with TechCompare's
+                comparison engine.
+            </p>
+
+            <a href="compare.html" class="primary-button">
+                START COMPARING →
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="footer-logo">
+            TC / TECHCOMPARE
+        </div>
+
+        <div>
+            SMARTPHONE INTELLIGENCE LAB · 2026
+        </div>
+
+    </footer>
+
+
+    <!-- DATA -->
+
+    <script src="data/companies.js"></script>
+    <script src="data/phones.js"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>
